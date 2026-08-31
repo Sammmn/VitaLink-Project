@@ -2,6 +2,16 @@
 
 > ✨ Conectando pacientes, clínicas e tecnologia em uma única plataforma.
 
+## 🚧 Status do Projeto
+
+**Atenção:** O VitaLink encontra-se atualmente em fase de desenvolvimento. Algumas funcionalidades podem estar incompletas, sofrer alterações ou ser adicionadas ao longo do processo de desenvolvimento.
+
+O objetivo é evoluir continuamente a plataforma até sua versão final, garantindo maior qualidade, segurança e uma melhor experiência para todos os usuários.
+
+🔄 Novas funcionalidades, melhorias de interface e otimizações podem ser implementadas a qualquer momento.
+
+---
+
 ## 📖 Sobre o Projeto
 
 O **VitaLink** é uma plataforma de gestão para clínicas online desenvolvida para simplificar processos administrativos e melhorar a experiência de pacientes e profissionais da saúde.
