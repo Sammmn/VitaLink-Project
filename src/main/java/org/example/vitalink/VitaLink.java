@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TesteApplication {
+public class VitaLink {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(TesteApplication.class, args);
+        SpringApplication.run(org.example.teste.VitaLink.class, args);
     }
 
 }
