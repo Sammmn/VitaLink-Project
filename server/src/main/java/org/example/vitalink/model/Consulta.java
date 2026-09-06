@@ -1,21 +1,23 @@
 package org.example.vitalink.model;
 
-import java.time.LocalTime;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-public class Agenda {
+public class Consulta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate data;
+    private LocalDateTime inicio;
 
-    private LocalTime horario;
+    private LocalDateTime fim;
 
-    private boolean disponivel;
+    private String observacoes;
+
+    @ManyToOne
+    private Paciente paciente;
 
     @ManyToOne
     private Profissional profissional;
