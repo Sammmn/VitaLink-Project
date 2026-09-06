@@ -1,3 +1,5 @@
+package org.example.vitalink.model;
+
 public class Agenda {
     //private Cliente cliente;
     //private Medico medico;
