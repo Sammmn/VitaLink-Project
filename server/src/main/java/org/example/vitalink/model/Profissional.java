@@ -2,8 +2,14 @@ package org.example.vitalink.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Entity
+@Getter
+@Setter
 public abstract class Profissional extends Usuario {
 
     @Column(unique = true)
@@ -11,5 +17,5 @@ public abstract class Profissional extends Usuario {
 
     private String biografia;
 
-    private Double valorConsulta;
+    private BigDecimal valorConsulta;
 }
