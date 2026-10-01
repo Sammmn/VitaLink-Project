@@ -1,6 +1,5 @@
 package org.example.vitalink.controller;
 
-import org.example.vitalink.DTO.UsuarioDTO;
 import org.example.vitalink.model.Usuario;
 import org.example.vitalink.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;

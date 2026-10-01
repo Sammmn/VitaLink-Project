@@ -1,4 +1,4 @@
-package org.example.vitalink.DTO;
+package org.example.vitalink.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;

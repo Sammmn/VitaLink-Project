@@ -1,6 +1,5 @@
 package org.example.vitalink.service;
 
-import org.example.vitalink.DTO.UsuarioDTO;
 import org.example.vitalink.model.Usuario;
 import org.example.vitalink.repositories.UsuarioRepository;
 
