@@ -1,5 +1,6 @@
 package org.example.vitalink.service;
 
+import org.example.vitalink.dto.request.LoginDTO;
 import org.example.vitalink.dto.request.MedicoDTO;
 import org.example.vitalink.model.Especialidade;
 import org.example.vitalink.model.Medico;
@@ -37,8 +38,7 @@ public class MedicoService {
 
         if (medicoRepository.existsByRegistroProfissional(dto.getRegistroProfissional())) {
 
-            throw new RuntimeException(
-                    "Registro profissional já cadastrado.");
+            throw new RuntimeException("Registro profissional já cadastrado.");
         }
 
         Medico medico = new Medico();
@@ -74,5 +74,13 @@ public class MedicoService {
 
     public List<Medico> buscarPorEspecialidade(Long id) {
         return medicoRepository.findByEspecialidadesId(id);
+    }
+
+    public Medico login(LoginDTO dto) {
+        Medico medico = medicoRepository.findByEmail(dto.getEmail()).orElseThrow(() -> new RuntimeException("Médico não encontrado."));
+        if (!passwordEncoder.matches(dto.getSenha(), medico.getSenha())) {
+            throw new RuntimeException("Senha inválida.");
+        }
+        return medico;
     }
 }

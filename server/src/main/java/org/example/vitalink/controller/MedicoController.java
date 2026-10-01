@@ -1,5 +1,6 @@
 package org.example.vitalink.controller;
 
+import org.example.vitalink.dto.request.LoginDTO;
 import org.example.vitalink.dto.request.MedicoDTO;
 import org.example.vitalink.dto.response.MedicoResponseDTO;
 import org.example.vitalink.model.Medico;
@@ -42,5 +43,11 @@ public class MedicoController {
     public ResponseEntity<List<Medico>> buscarPorEspecialidade(@PathVariable Long id) {
         return ResponseEntity.ok(medicoService.buscarPorEspecialidade(id)
         );
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<MedicoResponseDTO> login(
+            @RequestBody LoginDTO dto) {Medico medico = medicoService.login(dto);
+        return ResponseEntity.ok(new MedicoResponseDTO(medico));
     }
 }
