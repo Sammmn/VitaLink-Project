@@ -1,4 +1,4 @@
 package org.example.vitalink.dto.request;
 
-public class PacienteDTO {
+public class PacienteDTO extends UsuarioDTO{
 }

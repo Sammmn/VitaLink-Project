@@ -5,11 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AdministradorDTO {
+public class AdministradorDTO extends UsuarioDTO {
 
-    private String nome;
-    private String cpf;
-    private String email;
-    private String senha;
-    private String telefone;
+    private String nivelAcesso;
 }
