@@ -1,7 +1,11 @@
 package org.example.vitalink.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
@@ -21,4 +25,5 @@ public abstract class Usuario {
     private String senha;
 
     private String telefone;
+
 }
