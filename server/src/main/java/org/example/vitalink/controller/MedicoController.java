@@ -2,6 +2,7 @@ package org.example.vitalink.controller;
 
 import org.example.vitalink.dto.request.LoginDTO;
 import org.example.vitalink.dto.request.MedicoDTO;
+import org.example.vitalink.dto.response.MedicoListDTO;
 import org.example.vitalink.dto.response.MedicoResponseDTO;
 import org.example.vitalink.model.Medico;
 import org.example.vitalink.service.MedicoService;

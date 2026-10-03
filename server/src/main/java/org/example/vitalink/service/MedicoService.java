@@ -2,6 +2,7 @@ package org.example.vitalink.service;
 
 import org.example.vitalink.dto.request.LoginDTO;
 import org.example.vitalink.dto.request.MedicoDTO;
+import org.example.vitalink.dto.response.MedicoListDTO;
 import org.example.vitalink.model.Especialidade;
 import org.example.vitalink.model.Medico;
 import org.example.vitalink.repositories.EspecialidadeRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MedicoService {
