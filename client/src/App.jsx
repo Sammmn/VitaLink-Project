@@ -5,10 +5,10 @@ import Layout from './components/Layout'
 import { findAccount, registerPatient } from './mockAccounts'
 import { upcomingAppointments } from './mockData'
 
-// ── Auth pages ────────────────────────────────────────────────────────────────
+// ── Auth pages ────────────────────────────────────────────────────────────
 import { LoginPage, RegisterPage } from './pages/AuthPages'
 
-// ── Patient pages ─────────────────────────────────────────────────────────────
+// ── Patient pages ─────────────────────────────────────────────────────────
 import {
   PatientDashboard,
   PatientSchedulePage,
@@ -19,7 +19,9 @@ import {
   PatientProfilePage,
 } from './pages/PatientPages'
 
-// ── Doctor pages ──────────────────────────────────────────────────────────────
+import { PatientDoctorListPage } from './pages/PatientDoctorListPage'
+
+// ── Doctor pages ───────────────────────────────────────────────────────────
 import {
   DoctorDashboard,
   DoctorSchedulePage,
@@ -29,7 +31,7 @@ import {
   DoctorProfilePage,
 } from './pages/DoctorPages'
 
-// ── Admin pages ───────────────────────────────────────────────────────────────
+// ── Admin pages ──────────────────────────────────────────────────────────
 import {
   AdminDashboard,
   AdminDoctorsPage,
@@ -39,7 +41,7 @@ import {
   AdminProfilePage,
 } from './pages/AdminPages'
 
-// ── Page map ──────────────────────────────────────────────────────────────────
+// ── Page map ───────────────────────────────────────────────────────────
 const PAGE_MAP = {
   // Auth
   login: LoginPage,
@@ -47,6 +49,7 @@ const PAGE_MAP = {
   // Patient
   'patient-dashboard': PatientDashboard,
   'patient-schedule': PatientSchedulePage,
+  'patient-doctors': PatientDoctorListPage,
   'patient-history': PatientHistoryPage,
   'patient-budgets': PatientBudgetsPage,
   'patient-documents': PatientDocumentsPage,
@@ -68,7 +71,7 @@ const PAGE_MAP = {
   'admin-profile': AdminProfilePage,
 }
 
-// ── App ───────────────────────────────────────────────────────────────────────
+// ── App ──────────────────────────────────────────────────────────────
 export default function App() {
   const [page, setPage] = useState('login')
   const [role, setRoleState] = useState(null)
