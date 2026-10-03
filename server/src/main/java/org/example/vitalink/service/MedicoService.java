@@ -76,6 +76,18 @@ public class MedicoService {
         return medicoRepository.findByEspecialidadesId(id);
     }
 
+    public List<MedicoListDTO> listarTodosFormatado() {
+        return medicoRepository.findAll().stream()
+                .map(MedicoListDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<MedicoListDTO> listarPorEspecialidade(Long id) {
+        return medicoRepository.findByEspecialidadesId(id).stream()
+                .map(MedicoListDTO::new)
+                .collect(Collectors.toList());
+    }
+
     public Medico login(LoginDTO dto) {
         Medico medico = medicoRepository.findByEmail(dto.getEmail()).orElseThrow(() -> new RuntimeException("Médico não encontrado."));
         if (!passwordEncoder.matches(dto.getSenha(), medico.getSenha())) {

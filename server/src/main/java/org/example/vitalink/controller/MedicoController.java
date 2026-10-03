@@ -38,6 +38,17 @@ public class MedicoController {
         return ResponseEntity.ok(medicoService.listarTodos()
         );
     }
+    
+    @GetMapping("/lista/todos")
+    public ResponseEntity<List<MedicoListDTO>> listarTodos() {
+        return ResponseEntity.ok(medicoService.listarTodosFormatado());
+		  
+    }
+
+    @GetMapping("/lista/especialidade/{id}")
+    public ResponseEntity<List<MedicoListDTO>> listarPorEspecialidade(@PathVariable Long id) {
+        return ResponseEntity.ok(medicoService.listarPorEspecialidade(id));
+    }
 
     @GetMapping("/especialidade/{id}")
     public ResponseEntity<List<Medico>> buscarPorEspecialidade(@PathVariable Long id) {
