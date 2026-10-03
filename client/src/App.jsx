@@ -31,7 +31,11 @@ import {
   DoctorProfilePage,
 } from './pages/DoctorPages'
 
+// ── Patient Doctor List pages ────────────────────────────────────────────────────────────────
+import { PatientDoctorListPage } from './pages/PatientDoctorListPage'
+
 // ── Admin pages ──────────────────────────────────────────────────────────
+>>>>>>> 5595ad6c000d2979bf2eb84759941aa73d879089
 import {
   AdminDashboard,
   AdminDoctorsPage,
@@ -62,6 +66,8 @@ const PAGE_MAP = {
   'doctor-availability': DoctorAvailabilityPage,
   'doctor-notifications': DoctorNotificationsPage,
   'doctor-profile': DoctorProfilePage,
+  // Patient Doctor List
+  'patient-doctors': PatientDoctorListPage,
   // Admin
   'admin-dashboard': AdminDashboard,
   'admin-doctors': AdminDoctorsPage,
