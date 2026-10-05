@@ -19,8 +19,6 @@ import {
   PatientProfilePage,
 } from './pages/PatientPages'
 
-import { PatientDoctorListPage } from './pages/PatientDoctorListPage'
-
 // ── Doctor pages ───────────────────────────────────────────────────────────
 import {
   DoctorDashboard,
@@ -35,7 +33,6 @@ import {
 import { PatientDoctorListPage } from './pages/PatientDoctorListPage'
 
 // ── Admin pages ──────────────────────────────────────────────────────────
->>>>>>> 5595ad6c000d2979bf2eb84759941aa73d879089
 import {
   AdminDashboard,
   AdminDoctorsPage,
