@@ -11,12 +11,12 @@ import java.time.LocalTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HorarioDisponibleDTO {
+public class HorarioDisponivelDTO {
 
     private String horario;
     private Boolean disponivel;
 
-    public HorarioDisponibleDTO(LocalTime horario, Boolean disponivel) {
+    public HorarioDisponivelDTO(LocalTime horario, Boolean disponivel) {
         this.horario = horario.toString();
         this.disponivel = disponivel;
     }

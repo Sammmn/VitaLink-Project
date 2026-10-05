@@ -18,4 +18,8 @@ public abstract class Profissional extends Usuario {
     private String biografia;
 
     private BigDecimal valorConsulta;
+
+    private Double avaliacao;
+
+    private String localizacao;
 }

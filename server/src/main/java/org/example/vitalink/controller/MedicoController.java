@@ -34,12 +34,6 @@ public class MedicoController {
         );
     }
 
-    @GetMapping
-    public ResponseEntity<List<Medico>> listarTodos() {
-        return ResponseEntity.ok(medicoService.listarTodos()
-        );
-    }
-    
     @GetMapping("/lista/todos")
     public ResponseEntity<List<MedicoListDTO>> listarTodos() {
         return ResponseEntity.ok(medicoService.listarTodosFormatado());

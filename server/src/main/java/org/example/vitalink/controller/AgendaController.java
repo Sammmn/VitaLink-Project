@@ -1,6 +1,6 @@
 package org.example.vitalink.controller;
 
-import org.example.vitalink.dto.response.HorariosDisponivelsPorDataDTO;
+import org.example.vitalink.dto.response.HorariosDisponiveisPorDataDTO;
 import org.example.vitalink.model.Agenda;
 import org.example.vitalink.service.AgendaService;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/agendas")
@@ -22,7 +21,7 @@ public class AgendaController {
     }
 
     @GetMapping("/medico/{medicoId}/data/{data}")
-    public ResponseEntity<HorariosDisponivelsPorDataDTO> buscarHorariosDisponiveis(
+    public ResponseEntity<HorariosDisponiveisPorDataDTO> buscarHorariosDisponiveis(
             @PathVariable Long medicoId,
             @PathVariable String data) {
 

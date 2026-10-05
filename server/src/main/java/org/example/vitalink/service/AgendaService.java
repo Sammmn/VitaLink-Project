@@ -1,7 +1,7 @@
 package org.example.vitalink.service;
 
-import org.example.vitalink.dto.response.HorarioDisponibleDTO;
-import org.example.vitalink.dto.response.HorariosDisponivelsPorDataDTO;
+import org.example.vitalink.dto.response.HorarioDisponivelDTO;
+import org.example.vitalink.dto.response.HorariosDisponiveisPorDataDTO;
 import org.example.vitalink.model.Agenda;
 import org.example.vitalink.repositories.AgendaRepository;
 import org.springframework.stereotype.Service;
@@ -19,13 +19,13 @@ public class AgendaService {
         this.agendaRepository = agendaRepository;
     }
 
-    public HorariosDisponivelsPorDataDTO buscarHorariosDisponiveis(Long medicoId, LocalDate data) {
-        List<Agenda> agendas = agendaRepository.findByProfissionalAndData(medicoId, data);
+    public HorariosDisponiveisPorDataDTO buscarHorariosDisponiveis(Long medicoId, LocalDate data) {
+        List<Agenda> agendas = agendaRepository.findByMedicoEData(medicoId, data);
 
-        return new HorariosDisponivelsPorDataDTO(
+        return new HorariosDisponiveisPorDataDTO(
                 data,
                 agendas.stream()
-                        .map(agenda -> new HorarioDisponibleDTO(agenda.getHorario(), agenda.isDisponivel()))
+                        .map(agenda -> new HorarioDisponivelDTO(agenda.getHorario(), agenda.isDisponivel()))
                         .collect(Collectors.toList())
         );
     }

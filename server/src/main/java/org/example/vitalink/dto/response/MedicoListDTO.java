@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.vitalink.model.Medico;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,7 @@ public class MedicoListDTO {
     private String email;
     private String telefone;
     private String registroProfissional;
-    private Double valorConsulta;
+    private BigDecimal valorConsulta;
     private String biografia;
     private Double avaliacao;
     private String localizacao;

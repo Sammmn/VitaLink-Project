@@ -1,6 +1,5 @@
 package org.example.vitalink.dto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,13 +10,12 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class HorariosDisponivelsPorDataDTO {
+public class HorariosDisponiveisPorDataDTO {
 
     private LocalDate data;
-    private List<HorarioDisponibleDTO> horarios;
+    private List<HorarioDisponivelDTO> horarios;
 
-    public HorariosDisponivelsPorDataDTO(LocalDate data, List<HorarioDisponibleDTO> horarios) {
+    public HorariosDisponiveisPorDataDTO(LocalDate data, List<HorarioDisponivelDTO> horarios) {
         this.data = data;
         this.horarios = horarios;
     }
