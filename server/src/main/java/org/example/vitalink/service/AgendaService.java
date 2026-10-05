@@ -20,7 +20,7 @@ public class AgendaService {
     }
 
     public HorariosDisponiveisPorDataDTO buscarHorariosDisponiveis(Long medicoId, LocalDate data) {
-        List<Agenda> agendas = agendaRepository.findByMedicoEData(medicoId, data);
+        List<Agenda> agendas = agendaRepository.findByProfissionalIdAndData(medicoId, data);
 
         return new HorariosDisponiveisPorDataDTO(
                 data,

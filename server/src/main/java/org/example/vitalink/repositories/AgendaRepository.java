@@ -11,11 +11,6 @@ import java.util.List;
 
 public interface AgendaRepository extends JpaRepository<Agenda, Long> {
 
-    List<Agenda> findByProfissionalAndData(Profissional profissional, Date data);
+    List<Agenda> findByProfissionalIdAndData(Long profissionalId, LocalDate data);
 
-    List<Agenda> findByMedicoEData(Long medicoId, LocalDate data);
-
-    List<Agenda> findByFisioEData(Long fisioId, LocalDate data);
-
-    List<Agenda> findByPsicoEData(Long psicoId, LocalDate data);
 }
