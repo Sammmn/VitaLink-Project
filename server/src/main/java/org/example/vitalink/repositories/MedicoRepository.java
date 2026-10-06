@@ -20,3 +20,4 @@ public interface MedicoRepository extends JpaRepository <Medico, Long> {
 
     boolean existsByRegistroProfissional(String registroProfissional);
 }
+
