@@ -18,4 +18,8 @@ public class Medico extends Profissional {
             inverseJoinColumns = @JoinColumn(name = "especialidade_id")
     )
     private List<Especialidade> especialidades = new ArrayList<>();
+
+    public Medico(){
+        setCargo(Cargo.PROFISSIONAL);
+    }
 }

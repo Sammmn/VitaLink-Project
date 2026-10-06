@@ -10,4 +10,8 @@ import lombok.Setter;
 public class Psicologo extends Profissional {
 
     private String abordagem;
+
+    public Psicologo(){
+        setCargo(Cargo.PROFISSIONAL);
+    }
 }

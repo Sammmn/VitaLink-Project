@@ -1,8 +1,18 @@
 package org.example.vitalink.model;
 
-public enum Cargo { //caso precise futurament...//
-    ADMIN,
-    RECEPCIONISTA,
-    PROFISSIONAL,
-    PACIENTE
+import lombok.Getter;
+
+@Getter
+public enum Cargo {
+
+    ADMIN("ADMIN"),
+    RECEPCIONISTA("RECEPCIONISTA"),
+    PROFISSIONAL("PROFISSIONAL"),
+    PACIENTE("PACIENTE");
+
+    private final String cargo;
+
+    Cargo(String cargo) {
+        this.cargo = cargo;
+    }
 }
