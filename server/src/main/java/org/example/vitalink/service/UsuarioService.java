@@ -2,7 +2,9 @@ package org.example.vitalink.service;
 
 import org.example.vitalink.model.Usuario;
 import org.example.vitalink.repositories.UsuarioRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;

@@ -2,6 +2,7 @@ package org.example.vitalink.controller;
 
 import org.example.vitalink.dto.request.LoginDTO;
 import org.example.vitalink.dto.request.MedicoDTO;
+import org.example.vitalink.dto.response.MedicoListDTO;
 import org.example.vitalink.dto.response.MedicoResponseDTO;
 import org.example.vitalink.model.Agenda;
 import org.example.vitalink.model.Medico;
@@ -37,9 +38,15 @@ public class MedicoController {
         return ResponseEntity.ok(medicoService.buscarPorId(id));
     }
 
-    @GetMapping
-    public ResponseEntity<List<Medico>> listarTodos() {
-        return ResponseEntity.ok(medicoService.listarTodos());
+    @GetMapping("/lista/todos")
+    public ResponseEntity<List<MedicoListDTO>> listarTodos() {
+        return ResponseEntity.ok(medicoService.listarTodosFormatado());
+		  
+    }
+
+    @GetMapping("/lista/especialidade/{id}")
+    public ResponseEntity<List<MedicoListDTO>> listarPorEspecialidade(@PathVariable Long id) {
+        return ResponseEntity.ok(medicoService.listarPorEspecialidade(id));
     }
 
     @GetMapping("/especialidade/{id}")

@@ -26,10 +26,4 @@ public class AdministradorController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(administradorService.cadastrar(dto));
     }
-
-    @PostMapping("/login")
-    public ResponseEntity<Administrador> login(@RequestBody LoginDTO dto) {
-        Administrador administrador = administradorService.login(dto);
-        return ResponseEntity.ok(administrador);
-    }
 }

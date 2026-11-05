@@ -2,6 +2,7 @@ package org.example.vitalink.service;
 
 import org.example.vitalink.dto.request.LoginDTO;
 import org.example.vitalink.dto.request.MedicoDTO;
+import org.example.vitalink.dto.response.MedicoListDTO;
 import org.example.vitalink.model.Especialidade;
 import org.example.vitalink.model.Medico;
 import org.example.vitalink.repositories.EspecialidadeRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MedicoService {
@@ -74,6 +76,18 @@ public class MedicoService {
 
     public List<Medico> buscarPorEspecialidade(Long id) {
         return medicoRepository.findByEspecialidadesId(id);
+    }
+
+    public List<MedicoListDTO> listarTodosFormatado() {
+        return medicoRepository.findAll().stream()
+                .map(MedicoListDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<MedicoListDTO> listarPorEspecialidade(Long id) {
+        return medicoRepository.findByEspecialidadesId(id).stream()
+                .map(MedicoListDTO::new)
+                .collect(Collectors.toList());
     }
 
     public Medico login(LoginDTO dto) {

@@ -33,12 +33,4 @@ public class AdministradorService {
 
         return repository.save(administrador);
     }
-
-    public Administrador login(LoginDTO dto) {
-        Administrador administrador = repository.findByEmail(dto.getEmail()).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-        if (!passwordEncoder.matches(dto.getSenha(), administrador.getSenha())) {
-            throw new RuntimeException("Senha inválida");
-        }
-        return administrador;
-    }
 }
