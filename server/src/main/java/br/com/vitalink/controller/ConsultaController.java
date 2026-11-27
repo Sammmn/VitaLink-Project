@@ -1,11 +1,15 @@
 package br.com.vitalink.controller;
 
-import jakarta.validation.Valid;
+import br.com.vitalink.dto.request.ConsultaRequestDTO;
 import br.com.vitalink.dto.request.RegistroAtendimentoDTO;
 import br.com.vitalink.dto.response.ConsultaResponseDTO;
+import br.com.vitalink.security.UsuarioAutenticado;
 import br.com.vitalink.service.ConsultaService;
+import jakarta.validation.Valid;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -20,6 +24,16 @@ public class ConsultaController {
 
     public ConsultaController(ConsultaService consultaService) {
         this.consultaService = consultaService;
+    }
+
+    // RF06: POST /consultas
+    @PostMapping
+    public ResponseEntity<ConsultaResponseDTO> agendarConsulta(
+            @RequestBody @Valid ConsultaRequestDTO dto,
+            @AuthenticationPrincipal UsuarioAutenticado usuario
+    ) {
+        ConsultaResponseDTO consultaAgendada = consultaService.agendarConsulta(dto, usuario.id());
+        return ResponseEntity.status(HttpStatus.CREATED).body(consultaAgendada);
     }
 
     // RF10: GET /consultas/agenda?profissionalId=1&data=2026-10-05
