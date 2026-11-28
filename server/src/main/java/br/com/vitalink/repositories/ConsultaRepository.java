@@ -28,4 +28,10 @@ public interface ConsultaRepository extends JpaRepository<Consulta,Long> {
     boolean existsByProfissionalIdAndInicioAndStatusNot(Long profissionalId, LocalDateTime inicio, StatusConsulta status);
 
     boolean existsByPacienteIdAndInicioAndStatusNot(Long pacienteId, LocalDateTime inicio, StatusConsulta status);
+
+    List<Consulta> findByPacienteIdOrderByInicioDesc(Long pacienteId);
+
+    List<Consulta> findByProfissionalIdOrderByInicioDesc(Long profissionalId);
+
+    List<Consulta> findAllByOrderByInicioDesc();
 }

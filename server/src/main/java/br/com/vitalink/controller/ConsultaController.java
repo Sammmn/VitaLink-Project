@@ -26,7 +26,7 @@ public class ConsultaController {
         this.consultaService = consultaService;
     }
 
-    // RF06: POST /consultas
+
     @PostMapping
     public ResponseEntity<ConsultaResponseDTO> agendarConsulta(
             @RequestBody @Valid ConsultaRequestDTO dto,
@@ -34,6 +34,14 @@ public class ConsultaController {
     ) {
         ConsultaResponseDTO consultaAgendada = consultaService.agendarConsulta(dto, usuario.id());
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaAgendada);
+    }
+
+    @GetMapping("/historico")
+    public ResponseEntity<List<ConsultaResponseDTO>> consultarHistorico(
+            @AuthenticationPrincipal UsuarioAutenticado usuario
+    ) {
+        List<ConsultaResponseDTO> historico = consultaService.consultarHistorico(usuario);
+        return ResponseEntity.ok(historico);
     }
 
     // RF10: GET /consultas/agenda?profissionalId=1&data=2026-10-05

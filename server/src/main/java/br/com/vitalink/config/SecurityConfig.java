@@ -58,6 +58,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/agendas").hasAnyRole("ADMIN", "PROFISSIONAL")
                         .requestMatchers(HttpMethod.POST, "/pacientes").permitAll()
                         .requestMatchers(HttpMethod.POST, "/consultas").hasRole("PACIENTE")
+                        .requestMatchers(HttpMethod.GET, "/consultas/historico").hasAnyRole("PACIENTE", "PROFISSIONAL", "ADMIN")
                         .anyRequest().authenticated())
                 .addFilterBefore(new JwtAuthFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
 

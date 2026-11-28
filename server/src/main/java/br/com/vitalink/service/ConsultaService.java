@@ -7,6 +7,7 @@ import br.com.vitalink.exception.ConflitoException;
 import br.com.vitalink.exception.RecursoNaoEncontradoException;
 import br.com.vitalink.exception.RegraNegocioException;
 import br.com.vitalink.model.Agenda;
+import br.com.vitalink.model.Cargo;
 import br.com.vitalink.model.Consulta;
 import br.com.vitalink.model.Paciente;
 import br.com.vitalink.model.StatusConsulta;
@@ -14,6 +15,7 @@ import br.com.vitalink.repositories.AgendaRepository;
 import br.com.vitalink.repositories.ConsultaRepository;
 import br.com.vitalink.repositories.PacienteRepository;
 import br.com.vitalink.repositories.ProfissionalRepository;
+import br.com.vitalink.security.UsuarioAutenticado;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,7 +43,6 @@ public class ConsultaService {
         this.profissionalRepository = profissionalRepository;
     }
 
-    // RF06: Agendar consulta em horário disponível
     @Transactional
     public ConsultaResponseDTO agendarConsulta(ConsultaRequestDTO dto, Long pacienteId) {
         LocalDateTime inicio = LocalDateTime.of(dto.getData(), dto.getHorario());
@@ -85,6 +86,29 @@ public class ConsultaService {
 
         Consulta consultaSalva = consultaRepository.save(consulta);
         return new ConsultaResponseDTO(consultaSalva);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ConsultaResponseDTO> consultarHistorico(UsuarioAutenticado usuario) {
+        List<Consulta> consultas;
+
+        if (usuario.cargo() == Cargo.PACIENTE) {
+            if (!pacienteRepository.existsById(usuario.id())) {
+                throw new RecursoNaoEncontradoException("Paciente não encontrado");
+            }
+            consultas = consultaRepository.findByPacienteIdOrderByInicioDesc(usuario.id());
+        } else if (usuario.cargo() == Cargo.PROFISSIONAL) {
+            if (!profissionalRepository.existsById(usuario.id())) {
+                throw new RecursoNaoEncontradoException("Profissional não encontrado");
+            }
+            consultas = consultaRepository.findByProfissionalIdOrderByInicioDesc(usuario.id());
+        } else {
+            consultas = consultaRepository.findAllByOrderByInicioDesc();
+        }
+
+        return consultas.stream()
+                .map(ConsultaResponseDTO::new)
+                .collect(Collectors.toList());
     }
 
     // RF10: Buscar agenda do médico/profissional em uma data
